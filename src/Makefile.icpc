@@ -1,0 +1,59 @@
+CXX=icpc
+
+LOADLIBES += -pthread
+CXXFLAGS = -std=c++11
+# CXXFLAGS += -O1 -debug # -DNDEBUG
+CXXFLAGS += -fast -DNDEBUG
+
+OTHERFLAGS += 
+
+CXXFLAGS += $(OTHERFLAGS)
+
+%.o: %.cpp
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+%.o: %.cc
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+LIBSRC=osl_checkmate.cc usi.cc tables.cc osl_eval.cc osl_position.cc osl_types.cc
+
+LIBOBJS=$(patsubst %.cc,%.o,$(LIBSRC))
+
+SRCS = benchmark.cpp misc.cpp timeman.cpp evaluate.cpp move.cpp position.cpp tt.cpp main.cpp movegen.cpp search.cpp uci.cpp book.cpp movepick.cpp thread.cpp ucioption.cpp
+OBJS = $(patsubst %.cpp,%.o,$(SRCS))
+OSL_HOME_FLAGS = -DOSL_HOME=\"$(shell dirname `dirname \`pwd\``)/osl\"
+CC = $(CXX)
+
+all: programs
+
+programs : gpsfish
+
+gpsfish: $(OBJS) $(LIBOBJS) $(FILE_OSL_ALL)
+	$(CXX) -o $@ $(CXXFLAGS) $(PROFILE_USE) $(LDFLAGS) $(OBJS) $(LIBOBJS) $(FILE_OSL_ALL) $(LDLIBS) $(LOADLIBES)
+
+gpsfishoneprof: mainone.cc
+	$(CXX) -o $@ $(CXXFLAGS) $(OSL_HOME_FLAGS) $(PROFILE_GENERATE) $(LDFLAGS) $< $(LDLIBS) $(LOADLIBES) -lbz2
+
+gpsfishone: mainone.cc mainone.gcda gpsfishoneprof
+	$(CXX) -o $@ $(CXXFLAGS) $(OSL_HOME_FLAGS) $(PROFILE_USE) $(LDFLAGS) $< $(LDLIBS) $(LOADLIBES) -lbz2
+
+update-gpsfishone:
+	-rm gpsfishone gpsfishoneprof
+	$(MAKE) gpsfishoneprof RELEASE=t
+	$(MAKE) run-profile
+	$(MAKE) gpsfishone RELEASE=t
+
+run-profile: gpsfishoneprof
+	./gpsfishoneprof bench 32 1 12 default depth
+
+clean:
+	-rm *.o $(PROGRAM)
+	-rm -rf .deps
+
+light-clean:
+	-rm -rf .deps .objs .gch 
+
+-include $(patsubst %.cpp,.deps/%.cpp.d,$(SRCS))
+
+.PHONY: all clean light-clean run-profile update-gpsusione
+ 

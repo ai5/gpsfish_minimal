@@ -1,0 +1,28 @@
+#ifndef NDEBUG
+// #  define NDEBUG
+#endif
+
+#include "osl_checkmate.cc"
+// #include "osl_move.cc"
+#include "usi.cc"
+// #include "weights.cc"
+#include "tables.cc"
+#include "osl_eval.cc"
+// #include "see.cc"
+#include "osl_position.cc"
+#include "osl_types.cc"
+#include "benchmark.cpp"
+#include "misc.cpp"
+#include "timeman.cpp"
+#include "evaluate.cpp"
+#include "move.cpp"
+#include "movegen.cpp"
+#include "position.cpp"
+#include "tt.cpp"
+#include "main.cpp"
+#include "search.cpp"
+#include "uci.cpp"
+#include "book.cpp"
+#include "movepick.cpp"
+#include "thread.cpp"
+#include "ucioption.cpp"
