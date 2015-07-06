@@ -16,7 +16,8 @@ GXX=g++
 # LOADLIBES += -L/opt/local/lib -lboost_filesystem$(BOOST_POSTFIX) -lboost_serialization$(BOOST_POSTFIX) -lboost_iostreams$(BOOST_POSTFIX) -lboost_system$(BOOST_POSTFIX) -lboost_date_time$(BOOST_POSTFIX) -lpthread
 
 # LOADLIBES += -L/opt/local/lib -lpthread
-LOADLIBES += -Wl,-rpath,/usr/local/lib64 -L/usr/local/lib64 -L/opt/local/lib -lpthread
+LOADLIBES += -Wl,-rpath,/usr/local/lib64 -L/usr/local/lib64 -L/opt/local/lib -lpthread -lws2_32
+LDFLAGS += -static
 
 # -lboost_thread$(BOOST_POSTFIX_MT)  -lboost_program_options$(BOOST_POSTFIX) 
 
