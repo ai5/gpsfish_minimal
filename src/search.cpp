@@ -2324,13 +2324,15 @@ Value qsearch(Position& pos, SearchStack* ss, Value alpha, Value beta, Depth dep
   // pv_info_to_uci() returns a string with information on the current PV line
   // formatted according to UCI specification.
 
-  std::string RootMove::pv_info_to_uci(Position& pos, int depth, int selDepth, Value /* alpha */,
-                                       Value /* beta */, int /* pvIdx */) {
+  std::string RootMove::pv_info_to_uci(Position& pos, int depth, int selDepth, Value alpha,
+                                       Value beta, int pvIdx) {
     std::stringstream s;
 
     s << "info depth " << depth
       << " seldepth " << selDepth
+      << " multipv " << pvIdx + 1
       << " score " << value_to_uci(pv_score)
+      << (pv_score >= beta ? " lowerbound" : pv_score <= alpha ? " upperbound" : "")
       << speed_to_uci(pos.nodes_searched())
       << " pv ";
 
