@@ -231,7 +231,7 @@ strToMove(const std::string& str, const NumEffectState& s)
 {
   if (str == "win")
     return Move_DeclareWin;
-  if (str == "pass")
+  if (str == "pass" || str == "0000")
     return PASS(s.turn());
   if (str == "resign")
     return Move_INVALID;
