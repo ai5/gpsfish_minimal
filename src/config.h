@@ -39,8 +39,10 @@
 #endif
 #endif
 
+#if defined(_WIN64)
 #ifdef __SSE4_2__
 #define OSL_USE_SSE41 1
+#endif
 #endif
 
 #endif /* _OSL_CONFIG_H */
