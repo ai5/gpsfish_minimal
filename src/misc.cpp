@@ -149,11 +149,13 @@ const string gpsfish_home() {
   const string separator("/");
 #endif
   string home(GPSFISH_HOME);
+#if 0
   if (getenv("GPSFISH64_HOME")) {
     home.assign(getenv("GPSFISH64_HOME"));
   } else if (getenv("GPSFISH_HOME")) {
     home.assign(getenv("GPSFISH_HOME"));
   }
+#endif
   return home + separator;
 }
 
