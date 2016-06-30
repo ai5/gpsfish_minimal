@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
   setvbuf(stdout, NULL, _IONBF, 0);
   cout.rdbuf()->pubsetbuf(NULL, 0);
   cin.rdbuf()->pubsetbuf(NULL, 0);
-#if !defined(_WIN32)
+#if !defined(_WIN32) && !defined(__ANDROID__)
   if(argc==2 && !strncmp(argv[1],"tcp:",4)){
     std::string s(&argv[1][4]);
     std::string::iterator it=find(s.begin(),s.end(),':');

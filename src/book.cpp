@@ -43,6 +43,7 @@ unordered_map<string, int> Book::sfens;
 vector<BookEntry> Book::contents;
 int debugcount = 0;
 void Book::make_book(int argc, char *argv[]){
+#if !defined(__ANDROID__)
   assert(argc >= 4);
   string src_file(argv[2]), dst_file(argv[3]);
   int depth_limit = (argc >= 5 ? atoi(argv[4]) : -1);
@@ -202,6 +203,7 @@ void Book::make_book(int argc, char *argv[]){
       ofs << (k == 0 ? "" : ",") << e.bestMoves[k].first << " " << e.bestMoves[k].second;
     ofs << "\n";
   }
+#endif
 }
 
 #ifdef WEIGHTED_BOOK
@@ -474,7 +476,7 @@ bool Book::setUp(){
       string move(it, next);
       it = next + 1;
       next = find(it, e, ',');
-      int prob = std::stoi(string(it, next));
+      int prob = std::atoi(string(it, next).c_str());
       be.bestMoves.push_back(make_pair(move, prob));
       if(next == e) break;
       it = next + 1;
@@ -482,6 +484,7 @@ bool Book::setUp(){
     contents.push_back(be);
     sfens[cols[0]] = i++;
   }
+	
   return true;
 }
 

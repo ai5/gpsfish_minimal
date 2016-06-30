@@ -44,7 +44,7 @@ CXXOPTFLAGS += -fomit-frame-pointer
 endif
 endif
 
-OTHERFLAGS += -DGPSFISH_HOME=\".\"
+OTHERFLAGS += -DGPSFISH_HOME=\"./data\"
 
 #CXXOPTFLAGS+=-std=c++11 -Wall -Wno-missing-braces
 CXXOPTFLAGS+=-std=c++0x -Wall -Wno-missing-braces -flax-vector-conversions -Wcast-qual -fno-rtti -pedantic -Wno-long-long -Wextra -Wshadow 

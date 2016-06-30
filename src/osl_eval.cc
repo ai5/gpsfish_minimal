@@ -2136,9 +2136,9 @@ namespace osl
 			    Square lp,
 			    bool isP);
     /**
-     * (abs_x_diff, y_diff) - 玉を原点とした時の空マスの相対位置
-     * horizontal - 飛車の横利きがある場合
-     * is_promoted - 竜の場合
+     * (abs_x_diff, y_diff) - 玉を原点とした時�E空マスの相対位置
+     * horizontal - 飛車�E横利きがある場吁E
+     * is_promoted - 竜�E場吁E
      */
     static int index(int abs_x_diff, int y_diff, bool horizontal, bool is_promoted)
     {
@@ -2146,12 +2146,12 @@ namespace osl
 	(is_promoted ? 306 : 0);
     }
     /**
-     * 黒の飛車(竜)から利きのある駒
-     * (abs_x_diff, y_diff) - 駒を基準にした玉の相対位置
+     * 黒�E飛軁E竁Eから利き�Eある駁E
+     * (abs_x_diff, y_diff) - 駒を基準にした玉�E相対位置
      *                        abs_x_diffは絶対値
-     * ptypeO - 駒のptypeO, 白からの場合は反転
-     * horizontal - 飛車の横利きがある場合
-     * is_promoted - 竜の場合
+     * ptypeO - 駒�EptypeO, 白からの場合�E反転
+     * horizontal - 飛車�E横利きがある場吁E
+     * is_promoted - 竜�E場吁E
      */
     static int index0(int abs_x_diff,int y_diff,
 		      PtypeO ptypeO,
@@ -2160,13 +2160,13 @@ namespace osl
 	(horizontal ? 4896 : 0) + (promoted ? 9792 : 0);
     }
     /**
-     * 黒の飛車(竜)からの利きのある駒のindex
-     * {attack,defense}_{u,r,l,d} へのアクセスに使う
-     * from - 駒の位置
-     * king - 玉の位置
-     * ptypeO - 駒の種類，白からの利きの場合は反転．
+     * 黒�E飛軁E竁Eからの利き�Eある駒�Eindex
+     * {attack,defense}_{u,r,l,d} へのアクセスに使ぁE
+     * from - 駒�E位置
+     * king - 玉�E位置
+     * ptypeO - 駒�E種類，白からの利き�E場合�E反転�E�E
      *          (BLACK,PTYPE_Ptype::EDGE)もあり得る
-     * isP - 竜の場合
+     * isP - 竜�E場吁E
      */
     static int index1(Square king,Square from,PtypeO ptypeO,bool isP)
     {
@@ -2175,12 +2175,12 @@ namespace osl
       return index1(x_diff,y_diff,ptypeO,isP);
     }
     /**
-     * 黒の飛車(竜)からの利きのある駒のindex
-     * {attack,defense}_{u,r,l,d} へのアクセスに使う
-     * (x_diff, y_diff) - 玉を基準に見た駒の相対位置
-     * ptypeO - 駒の種類，白からの利きの場合は反転．
+     * 黒�E飛軁E竁Eからの利き�Eある駒�Eindex
+     * {attack,defense}_{u,r,l,d} へのアクセスに使ぁE
+     * (x_diff, y_diff) - 玉を基準に見た駒�E相対位置
+     * ptypeO - 駒�E種類，白からの利き�E場合�E反転�E�E
      *          (BLACK,PTYPE_Ptype::EDGE)もあり得る
-     * isP - 竜の場合
+     * isP - 竜�E場吁E
      */
     static int index1(int x_diff,int y_diff,PtypeO ptypeO,bool isP){
       assert(-9 <= y_diff && y_diff <= 9);
@@ -2191,11 +2191,11 @@ namespace osl
       return index;
     }
     /**
-     * 黒の飛車(竜)がある場所は空マスでないのでその分を補正するテーブル
+     * 黒�E飛軁E竁Eがある場所は空マスでなぁE�Eでその刁E��補正するチE�Eブル
      * {attack,defense}_nospace へのアクセス
-     * king - 玉の位置
-     * from - 飛車(竜)の位置
-     * isP - 竜の場合
+     * king - 玉�E位置
+     * from - 飛軁E竁Eの位置
+     * isP - 竜�E場吁E
      */
     static int index2(Square king,Square from,bool isP)
     {
@@ -2204,10 +2204,10 @@ namespace osl
       return index2(x_diff,y_diff,isP);
     }
     /**
-     * 黒の飛車(竜)がある場所は空マスでないのでその分を補正するテーブル
+     * 黒�E飛軁E竁Eがある場所は空マスでなぁE�Eでその刁E��補正するチE�Eブル
      * {attack,defense}_nospace へのアクセス
-     * (x_diff, y_diff)  - 玉を基準にしてみた飛車(竜)の相対位置
-     * isP - 竜の場合
+     * (x_diff, y_diff)  - 玉を基準にしてみた飛軁E竁Eの相対位置
+     * isP - 竜�E場吁E
      */
     static int index2(int x_diff,int y_diff,bool isP){
       assert(-9 <= y_diff && y_diff <= 9);
@@ -2304,13 +2304,13 @@ namespace osl
 	(ur ? 4896 : 0) + (promoted ? 9792 : 0);
     }
     /**
-     * 黒の角(馬)からの利きのある駒のindex
-     * {attack,defense}_{ul,ur,dl,dr} へのアクセスに使う
-     * from - 駒の位置
-     * king - 玉の位置
-     * ptypeO - 駒の種類，白からの利きの場合は反転．
+     * 黒�E见E馬)からの利き�Eある駒�Eindex
+     * {attack,defense}_{ul,ur,dl,dr} へのアクセスに使ぁE
+     * from - 駒�E位置
+     * king - 玉�E位置
+     * ptypeO - 駒�E種類，白からの利き�E場合�E反転�E�E
      *          (BLACK,PTYPE_Ptype::EDGE)もあり得る
-     * isP - 馬の場合
+     * isP - 馬の場吁E
      */
     static int index1(Square king,Square from,PtypeO ptypeO,bool isP)
     {
@@ -2319,12 +2319,12 @@ namespace osl
       return index1(x_diff,y_diff,ptypeO,isP);
     }
     /**
-     * 黒の角(馬)からの利きのある駒のindex
-     * {attack,defense}_{ul,ur,dl,dr} へのアクセスに使う
-     * (x_diff, y_diff) - 玉を基準に見た駒の相対位置
-     * ptypeO - 駒の種類，白からの利きの場合は反転．
+     * 黒�E见E馬)からの利き�Eある駒�Eindex
+     * {attack,defense}_{ul,ur,dl,dr} へのアクセスに使ぁE
+     * (x_diff, y_diff) - 玉を基準に見た駒�E相対位置
+     * ptypeO - 駒�E種類，白からの利き�E場合�E反転�E�E
      *          (BLACK,PTYPE_Ptype::EDGE)もあり得る
-     * isP - 馬の場合
+     * isP - 馬の場吁E
      */
     static int index1(int x_diff,int y_diff,PtypeO ptypeO,bool isP){
       assert(-9 <= y_diff && y_diff <= 9);
@@ -2335,11 +2335,11 @@ namespace osl
       return index;
     }
     /**
-     * 黒の角(馬)がある場所は空マスでないのでその分を補正するテーブル
+     * 黒�E见E馬)がある場所は空マスでなぁE�Eでその刁E��補正するチE�Eブル
      * {attack,defense}_nospace へのアクセス
-     * king - 玉の位置
-     * from - 角(馬)の位置
-     * isP - 馬の場合
+     * king - 玉�E位置
+     * from - 见E馬)の位置
+     * isP - 馬の場吁E
      */
     static int index2(Square king,Square from,bool isP)
     {
@@ -2348,10 +2348,10 @@ namespace osl
       return index2(x_diff,y_diff,isP);
     }
     /**
-     * 黒の角(馬)がある場所は空マスでないのでその分を補正するテーブル
+     * 黒�E见E馬)がある場所は空マスでなぁE�Eでその刁E��補正するチE�Eブル
      * {attack,defense}_nospace へのアクセス
-     * (x_diff, y_diff)  - 玉を基準にしてみた角(馬)の相対位置
-     * isP - 馬の場合
+     * (x_diff, y_diff)  - 玉を基準にしてみた见E馬)の相対位置
+     * isP - 馬の場吁E
      */
     static int index2(int x_diff,int y_diff,bool isP){
       assert(-9 <= y_diff && y_diff <= 9);
@@ -2700,7 +2700,7 @@ namespace osl
   class KingPieceTable;
   bool operator==(const KingPieceTable& l, KingPieceTable& r);
   /**
-   * 玉と他の駒の関係を保持
+   * 玉と他�E駒�E関係を保持
    */
   class KingPieceTable
   {
@@ -2746,7 +2746,7 @@ namespace osl
  */
 
   /**
-   * 玉の位置*攻撃駒の位置*ptype
+   * 玉�E位置*攻撁E���E位置*ptype
    */
   class AttackKing
   {
@@ -2785,7 +2785,7 @@ namespace osl
  */
 
   /**
-   * 玉の位置*守備駒の位置*ptype
+   * 玉�E位置*守備駒�E位置*ptype
    */
   class DefenseKing
   {
@@ -3021,7 +3021,7 @@ namespace osl
 
     static void init();
     static void sanitize(Weights& values);
-    /** values を展開してクラス全体で使う */
+    /** values を展開してクラス全体で使ぁE*/
     static void compile(const Weights& values);
     static int valueCompiled(int offset_id, Piece p, Square p1, PtypeO o1)
     {
@@ -3029,7 +3029,7 @@ namespace osl
     }
     static int valueCompiled(int offset_id, Square p0, PtypeO o0, Square p1, PtypeO o1);
 
-    // 内部用
+    // 冁E��用
     struct IndexTable : public std::array<std::array<std::array<signed short, PTYPEO_SIZE>, PTYPEO_SIZE>, 12>
     {
       IndexTable();
@@ -4979,8 +4979,8 @@ bool osl::
 KnightAdvance::cantAdvance(const osl::NumEffectState &state,
 			   const osl::Piece knight)
 {
-  // knight が敵陣一段目にいないと仮定
-  // もしいる場合はSquare(1,1)のUURが駒台に衝突
+  // knight が敵陣一段目にぁE��ぁE��仮宁E
+  // もしぁE��場合�ESquare(1,1)のUURが駒台に衝突E
   assert(P==owner(knight));
   Square uul = square(knight)+newOffset(P,UUL);
   const Piece puul = state.pieceAt(uul);
@@ -9767,6 +9767,58 @@ OpenMidEndingEval::resetWeights(const int *w, size_t length)
   doResetWeights(reader);
 }
 
+#if 1
+struct IntReader {
+	std::ifstream& is;
+	int nextVal;
+
+	bool failed_flag;
+	char buf[4096];
+	int readlen;
+	int pos;
+
+	IntReader(std::ifstream& is_) :is(is_), failed_flag(false)
+	{
+		is.read(buf, sizeof(buf));
+		readlen = is.gcount();
+		pos = 0;
+	}
+
+	bool hasNext() {
+
+		if (pos < readlen)
+		{
+			return true;
+		}
+
+		if (readlen == sizeof(buf))
+		{
+			is.read(buf, sizeof(buf));
+			readlen = is.gcount();
+			pos = 0;
+		}
+
+		return pos < readlen;
+	}
+
+
+	int read() {
+		if (!hasNext()) {
+			failed_flag = true; return 0;
+		}
+
+		int nextVal = buf[pos] | (int)buf[pos + 1] << 8;
+		pos += 2;
+
+		return nextVal;
+	}
+
+	bool failed() const {
+		return failed_flag;
+	}
+};
+
+#else
 struct IntReader{
   std::ifstream& is;
   int nextVal;
@@ -9788,6 +9840,7 @@ struct IntReader{
     return failed_flag;
   }
 };
+#endif
 
 bool osl::OpenMidEndingEval::setUp(const char *filename)
 {
@@ -9998,7 +10051,11 @@ OpenMidEndingEval::doResetWeights(Reader& reader)
 
 std::string osl::OpenMidEndingEval::defaultFilename()
 {
+#if 1
+  return gpsfish_home() + "eval.bin";
+#else
   return gpsfish_home() + "eval.txt";
+#endif
 }
 
 bool osl::OpenMidEndingEval::setUp()

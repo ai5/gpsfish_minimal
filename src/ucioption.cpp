@@ -106,6 +106,10 @@ OptionsMap::OptionsMap() {
     const size_t bytes = statex.ullTotalPhys; // in bytes
     memory = min((size_t)2048, max(memory, bytes/1024/1024/4));
   }
+# elif defined(__ANDROID__)
+	{
+		memory = 64;
+	}
 #  else
   {
     std::string name, unit;

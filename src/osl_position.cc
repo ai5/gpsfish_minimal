@@ -7,11 +7,14 @@
 #include <iostream>
 #include <iostream>
 #include <stdexcept>
+#if !defined(__ANDROID__)
 #if defined __INTEL_COMPILER
 /* __v2di */
 #include <immintrin.h>
 #endif
 #include <emmintrin.h>
+#endif
+
 #include <iostream>
 
 
@@ -1220,6 +1223,7 @@ int osl::NumEffectState::see(osl::Move move) const
 
 
 void osl::csaShow(std::ostream& os, NumEffectState const& st){
+#if !defined(__ANDROID__)
   constexpr char const * csastr[14] = {"TO", "NY", "NK", "NG", "UM", "RY", "OU", "KI", 
 		      "FU", "KY", "KE", "GI", "KA", "HI"};
   for(int y = 1; y < 10; y++){
@@ -1240,6 +1244,7 @@ void osl::csaShow(std::ostream& os, NumEffectState const& st){
     os << std::endl;
   }
   os << (st.turn() == BLACK ? "+" : "-") << std::endl;
+#endif
 }
 
 

@@ -950,7 +950,7 @@ namespace osl{
     uint16_t ret;
     __asm__("bsfw %1,%0" : "=r"(ret) : "r"(mask));
     return ret;
-#elif defined __GNUC__
+#elif defined(__GNUC__)
     return __builtin_ctzl(mask);
 #else
     for (int i = 0; i < 16; i++)
@@ -967,11 +967,13 @@ namespace osl{
     uint64_t ret;
     __asm__("bsfq %1,%0" : "=r"(ret) : "r"(mask));
     return int(ret);
+#elif defined(__GNUC__)
+	  return __builtin_ctzll(mask);
 #else
     uint32_t mask32 = uint32_t(mask);
     if (mask32) return bsf(mask32);
     mask32 = uint32_t(mask >> 32);
-    return 32 + mask32;
+    return 32 + bsf(mask32);
 #endif
   }
   inline int takeOneBit(uint32_t& mask){
