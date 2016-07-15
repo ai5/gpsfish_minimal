@@ -929,7 +929,7 @@ namespace osl{
   inline int bsf(uint32_t mask)
   {
     assert(mask);
-#if defined(__i386__) || defined(__x86_64__)  || (defined(_MSC_VER) && defined(__INTEL_COMPILER))
+#if !defined(__ANDROID__) &&  (defined(__i386__) || defined(__x86_64__)  || (defined(_MSC_VER) && defined(__INTEL_COMPILER)))
     int ret;
     __asm__("bsfl %1,%0" : "=r"(ret) : "r"(mask));
     return ret;
@@ -946,7 +946,7 @@ namespace osl{
   inline uint16_t bsf(uint16_t mask)
   {
     assert(mask);
-#if defined(__i386__) || defined(__x86_64__)  || (defined(_MSC_VER) && defined(__INTEL_COMPILER))
+#if !defined(__ANDROID__) && (defined(__i386__) || defined(__x86_64__)  || (defined(_MSC_VER) && defined(__INTEL_COMPILER)))
     uint16_t ret;
     __asm__("bsfw %1,%0" : "=r"(ret) : "r"(mask));
     return ret;

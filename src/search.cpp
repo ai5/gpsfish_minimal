@@ -432,6 +432,7 @@ bool think(Position& pos, const SearchLimits& limits, Move searchMoves[]) {
       Move bookMove = book.get_move(pos, Options["Best Book Move"].value<bool>());
       if (bookMove != MOVE_NONE)
       {
+		  book.disp_moves(pos);
           if (Limits.ponder)
               wait_for_stop_or_ponderhit();
 

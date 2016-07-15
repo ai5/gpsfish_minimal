@@ -52,6 +52,7 @@ public:
   static Move get_move(const Position& pos, bool findBestMove);
   static void make_book(int argc, char *argv[]);
   static void make_weighted_book(string const& src_file, string const& dst_file);
+  static void disp_moves(const Position& pos);
 };
 
 #endif // !defined(BOOK_H_INCLUDED)

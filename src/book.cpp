@@ -503,3 +503,23 @@ Move Book::get_move(const Position& pos, bool /* findBestMove */){
   }
   return MOVE_NONE;  
 }
+
+void Book::disp_moves(const Position& pos)
+{
+	string s = osl::usi::show(*pos.osl_state);
+	
+	auto it = sfens.find(s);
+	
+	if(it == sfens.end())
+	{
+		return;
+	}
+	
+	int i = it->second;
+	int multipv = 1;
+	for(auto& e : contents[i].bestMoves)
+	{
+		std::cout << "info multipv " << multipv << " score cp 0 pv " << e.first << std::endl;
+		multipv++;
+	}
+}

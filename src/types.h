@@ -100,7 +100,7 @@ typedef unsigned __int64 uint64_t;
 // is already available as an intrinsic.
 #if !defined(__GNUC__) & defined(_MSC_VER)
 #include <intrin.h>
-#elif defined(__GNUC__) && (defined(__i386__) || defined(__x86_64__))
+#elif !defined(__ANDROID__) && defined(__GNUC__) && (defined(__i386__) || defined(__x86_64__))
 inline void __cpuid(int CPUInfo[4], int InfoType)
 {
   int* eax = CPUInfo + 0;
