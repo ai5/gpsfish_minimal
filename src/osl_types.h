@@ -31,7 +31,7 @@ namespace std{
 #if defined(_MSC_VER)
 #define ALIGN(n) __declspec(align(n))
 #elif defined __GNUC__
-#define ALIGN(n) __attribute__((aligned(n)))
+#define ALIGN(n) /*__attribute__((aligned(n)))*/
 #else
 #define ALIGN(n)
 #endif
